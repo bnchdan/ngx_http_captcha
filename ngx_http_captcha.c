@@ -293,7 +293,7 @@ static ngx_int_t ngx_http_captcha_handler(ngx_http_request_t *r) {
         return serve_HTML(r);
     }
     
-	/**
+   /**
     create input string ( secret + IP + time +resp cookie )
     */
     unsigned long bucket = r->start_sec - (r->start_sec % conf->bucket_duration);
@@ -301,7 +301,7 @@ static ngx_int_t ngx_http_captcha_handler(ngx_http_request_t *r) {
     for (unsigned long i=1; i<bucket; i*=10){
         bucket_size++;
     }
-	unsigned* input=malloc( sizeof(char) * (conf->secret.len +r->connection->addr_text.len+resp.len + bucket_size +2  )  );
+	unsigned* input=malloc( sizeof(char) * (conf->secret.len +r->connection->addr_text.len+resp.len + bucket_size +1  )  );
     snprintf( 
             (char *)input, 
             ( conf->secret.len +r->connection->addr_text.len+resp.len + bucket_size +1  ),
