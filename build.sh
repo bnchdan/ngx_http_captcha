@@ -17,5 +17,5 @@ echo $CONFIG_ARGS
   make modules -j "$(nproc)"
 ) || exit
 
-echo "Load the dynamic module ${NGINX_PATH}/objs/ngx_http_js_challenge_module.so and restart nginx to install"
+
 
